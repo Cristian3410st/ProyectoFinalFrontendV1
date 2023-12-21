@@ -1,6 +1,6 @@
 const apiURL = "https://backendproyetofinalv1-dt09.onrender.com/api"
 
-                 
+
 
 export const RegisterPost = async (user) => {
     try {
