@@ -6,13 +6,13 @@
       }
     ],
     "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "https://backend-delta-jet.vercel.app/api/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "client/$1"
-      }
-    ]
+        {
+          "src": "/api/(.*)",
+          "dest": "https://backend-delta-jet.vercel.app/api/$1"
+        },
+        {
+          "src": "/(.*)",
+          "dest": "client/$1"
+        }
+      ]
   }
