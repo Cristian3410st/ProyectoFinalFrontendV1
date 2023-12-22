@@ -1,5 +1,4 @@
-const apiURL = "https://backendproyetofinalv1-dt09.onrender.com/api"
-
+const apiURL = "https://backend-delta-jet.vercel.app/api"
 
 
 export const RegisterPost = async (user) => {

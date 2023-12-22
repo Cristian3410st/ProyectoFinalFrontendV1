@@ -1,4 +1,4 @@
-import {HashRouter as Router ,Routes,Route} from "react-router-dom"
+import {BrowserRouter,Routes,Route} from "react-router-dom"
 import RegisterPage from "./pages/public/RegisterPage"
 import LoginPage from "./pages/public/LoginPage"
 import AdminPage from "./pages/private/AdminPage"
@@ -18,7 +18,7 @@ function App ( ){
 return(
    <AccessProvider>
       <TaskProvider>
-   <Router>
+   <BrowserRouter>
    <NavBar/>
    <Routes>
     <Route path="/" element={<HomePage/>}/>
@@ -34,7 +34,7 @@ return(
     <Route path="/getSchedule" element={<GetsSchedulePage/>}/>
     </Route>
    </Routes>
-   </Router>
+   </BrowserRouter>
    </TaskProvider>
    </AccessProvider>
 )
