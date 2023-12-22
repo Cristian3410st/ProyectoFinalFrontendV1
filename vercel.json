@@ -1,0 +1,18 @@
+{
+    "builds": [
+      {
+        "src": "client/index.html",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "https://backend-delta-jet.vercel.app/api/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "client/$1"
+      }
+    ]
+  }
