@@ -1,8 +1,8 @@
 {
-  "version": 2,
+
   "builds": [
     {
-      "src": "client",
+      "src": "client/vite.config.js",
       "use": "@vercel/node" 
     }
   ],
