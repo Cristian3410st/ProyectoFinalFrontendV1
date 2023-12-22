@@ -8,7 +8,7 @@ import HomePage from "./pages/public/HomePage"
 import HelpPage from "./pages/public/HelpPage"
 import ContactPage from "./pages/public/ContactPage"
 import HistoryPage from "./pages/public/HistoryPage"
-import SuggestionsPage from "./pages/public/suggestionsPage"
+import SuggestionsPage from "/src/pages/public/SuggestionsPage";
 import ProtectedRoute from "./protectedRoute"
 import { TaskProvider } from "./contexts/TasksContext"
 import NavBar from "./components/Navbar"
