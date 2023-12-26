@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "./client/dist/index.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "./client/dist/assets/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "cleanUrls": true
+  }
+  
