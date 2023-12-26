@@ -1,9 +1,5 @@
 const apiURL = "https://backend-delta-jet.vercel.app/api"
 
-//const apiURL = "http://localhost:3000/api"
-
-
-
 
 export const RegisterPost = async (user) => {
     try {

@@ -1,0 +1,14 @@
+{
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "https://backend-delta-jet.vercel.app/api/$1",
+        "methods": ["GET", "POST", "PUT", "DELETE"]
+      },
+      {
+        "src": "/(.*)",
+        "dest": "https://frontend-six-ruby.vercel.app/$1"
+      }
+    ]
+  }
+  
