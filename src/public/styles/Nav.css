@@ -1,36 +1,51 @@
-header{
-    width: 100%;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1px;
-    border-radius: 10px;
+.headerClient{
+    position: absolute;
 }
 
-.logo{
-    width: 70px;
-    height: 70px;
-    display: flex;
-    padding: 10px;
-    border-radius: 20px;
-    margin-left: 30px;
-    
-  
+.headeradmin{
+    position: absolute;
+}
+
+.logoClient{
+    color: #fff;
+    font-size:x-large;
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.iconoClient{
+    margin-bottom: -5px;
 }
 
 .listaNavegacionPublica{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    padding-right: 60px;
-
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   width: 1354px;
+   margin: 0;
+   padding: 0;
+   margin-left: 15px;
+   margin-right: 15px;
+   margin-top: 15px;
 }
+
+.navClient{
+   display: flex;
+   width: 1340px;
+}
+
+
+.listaNavegacionPublica li{
+    text-decoration: none;
+    list-style: none;
+}
+
 
 .listaNavegacionPublica a{
     position: relative;
-    margin-left: 20px;
+    margin-left: 10px;
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
 }
 
 
@@ -39,17 +54,18 @@ header{
     width: 130px;
     height: 50px;
     background: transparent;
-    border: none;
+    border: 2px solid #fff;
     border-radius: 6px;
     cursor: pointer;
-    color:#000000 ;
+    font-size: 1rem;
     transition: .5s;
-    font-size: 17px;
+    color: #fff;
+
 }
 
 .listaNavegacionPublica .BotonAccesso:hover{
-    background: #406fa5;
-    color: #ffffff;
+    background: #ffffff;
+    color: #000000;
 }
 
 .listaNavegacionPublica a::after{
@@ -59,7 +75,7 @@ header{
     bottom: -6px;
     width: 100%;
     height:3px ;
-    background: #406fa5;
+    background: #ffffff;
     border-radius: 5px;
     transform-origin: right;
     transform: scaleX(0);
@@ -73,71 +89,160 @@ header{
 
 /*estilos para el nav de logeo*/
 
-.container{
-    list-style: none;
+
+.headerUser{
+    position: absolute; 
+    width: 99.7%;
+    height: 100px;
     display: flex;
+    flex-direction: column;
+}
+
+
+.ulAdmin{
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     align-items: center;
-    justify-content: center;
-    align-content: center;
-}
+    margin-bottom: 25px;
 
-.container li{
-    margin-left: 60px;
-    margin-right: 10px;
 }
 
 
-.logout button{
-    width: 130px;
-    height: 55px;
-    background: transparent;
-    border: none;
-    color: #000000;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    transition: .5s;
-    border-radius: 10px;
-}
 
-
-.container .logout button:hover{
-    background-color: rgb(165, 52, 52);
+.logo{
     color: #fff;
+    margin-right: auto;
+    font-size:x-large;
+    font-weight: 600;
+
+}
+
+.icono2{
+  margin-bottom: -5px;
+}
+
+
+.navUser{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+
+.ulAdmin li{
+    display: inline;
+}
+
+li{
+    margin-right: 15px;
 }
 
 .Horarios a{
    text-decoration: none;
-   color: #000000;
+   color: #fff;
 }
 
 .Horarios{
-    width: 180px;
-    height: 50px;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     transition: .5s;
-
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.Horarios:hover{
-    background-color: #c588e9;
 
-}
 
 .Horarios a:hover{
   color: #fff;
 }
 
 .Usuarios{
-    border: 2px solid rgb(177, 177, 177);
     height: 40px;
     width: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 9px;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: auto;
+    margin-top: 12px;
+}
+
+.cambiaConraseña{
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 9px;
+
+     
+}
+
+
+.manualUsuario{
+    text-decoration: none;
+    color: #fff;
+}
+
+.logout a{
+ color: #fff; 
+ list-style: none;
+ text-decoration: none;
+}
+
+.ulAdmin a{
+    position: relative;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+
+.ulAdmin a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height:3px ;
+    background: #ffffff;
     border-radius: 5px;
-    color: gray;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.ulAdmin a:hover::after{
+    transform: scaleX(1);
+}
+
+.logout{
+    border: 2px solid #fff;
+    width: 130px;
+    height: 50px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    transition: .5s;
+    background: transparent;
+}
+
+
+
+.logout:hover{
+    background-color: rgb(139, 10, 10);
+    color: #fff;
+    transform: scale(1.1);
 }

@@ -1,183 +1,123 @@
-import {useForm} from "react-hook-form"
-import { useAccess } from "../../contexts/AccessContex";
-import { useEffect } from "react";
-import {Link, useNavigate} from "react-router-dom"
+import {useForm} from "react-hook-form";
+import { FaKey } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaIdCard } from "react-icons/fa";
 import { FaPagelines } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { MdOutlineWork } from "react-icons/md";
-import { AiOutlineDingtalk } from "react-icons/ai";
-import { IoClose } from "react-icons/io5";
+import {Link,useNavigate} from "react-router-dom"
 import "../../public/styles/register.css"
+import {useAccess} from "../../contexts/AccessContex"
+import { useEffect } from "react";
 
 
-
-
-function RegisterPage(){
-
-    const { register,handleSubmit,formState:{errors}} = useForm();
-    const {signup,isAuthenticated,errors:RegisterErrors} = useAccess();
+function RegisterAdminPage(){
+   
+    const {register,handleSubmit} = useForm();
+    const {signup,isAuthenticated,user} = useAccess();
     const navigate = useNavigate();
 
- 
-
     useEffect(()=>{
-     if(isAuthenticated) navigate("/admin")
-    },[isAuthenticated])
-    
-    const hasFormErrors = Object.keys(errors).length > 0;
+      if(isAuthenticated && user.rol ==="usuario")navigate("/user")
+      else if(isAuthenticated && user.rol === "administrador")navigate("/admin")
+      },[isAuthenticated,user])
 
-     
-    const onSubmit = handleSubmit( async (values) => {
+    const onSubmit = handleSubmit(async (values)=>{
+      console.log(values)
       signup(values)
+    }) 
 
-        })
+return(
+<body className="body">
+  <main className="wraper">
+   <section className="form_box_register">
+     <form className="" onSubmit={onSubmit}>
+       <h2>Registrarse</h2>
 
-   
-
-    return(
-      <body className="body_Register">
-        <main className={`wrapper_Register ${hasFormErrors ? "with-errors" : ""}`}>
-           <span className="iconClose" onClick={() => navigate("/")}><IoClose />
-           </span>
-           
-        {
-          RegisterErrors.map((error,i)=> (
-            <div key={i}>{error}</div>
-          ))
-        }
-     <section className="form-Box-Register">
-      <form onSubmit={onSubmit}>
-      <h2>Registrarse</h2>
-      <div className="input_container">
-      <FaUser className="icon"/>
-        <input type="text" 
+       <p>
+        Por favor, selecione el rol para el cual se quiere registrar.
+       </p>
+       <div className="input_box">
+         <FaKey className="icon"/>
+         <label className="labelPassword">selecione su rol:</label>
+          <select {...register("rol",{required:true})}>
+           <option value="administrador">administrador</option>
+           <option value="usuario">usuario</option>
+          </select>
+       </div>
+      <div className="input_box">
+       <FaUser className="icon"/>
+       <input type="text"
         {...register("username",{required:true})}
-         placeholder=""
-        />
-        <label className="labelclassUser">Usuario</label>
-        </div>
-        {
-          errors.username &&(
-            <p className="errosReactForm">
-              El usuario es requerido
-            </p>
-          )
-        }
-         <div className="input_container">
-         <RiLockPasswordFill className="icon"/>
+        placeholder=""
+       />
+           <label className="labelUser">Usuario</label>
+      </div>
+      <div className="input_box">
+        <RiLockPasswordFill className="icon"/>
         <input type="password"
-        {...register("password",{required:true})}
+        {...register('password',{required:true})}
         placeholder=""
         />
-        <label className="password">Contraseña</label>
-         </div>
-        {
+            <label className="labelPassword">Contraseña</label>
+      </div>
 
-          errors.password &&(
-            <p className="errosReactForm">
-              La contraseña es requerida
-            </p>
-          )
-        }
-        <div className="input_container">
-        <FaIdCard  className="icon"/>
+      <div className="input_box">
+        <FaIdCard className="icon"/>
         <input type="text"
-        {...register('nombresApellidos',{required:true})}
+        {...register("nombresYapellidos",{required:true})}
         placeholder=""
         />
-        <label className="labelclassName">Nombres y apellidos</label>
-        </div>
-         {
-          errors.nombresApellidos &&(
-            <p className="errosReactForm">
-              los nombres y apellidos son requeridos
-            </p>
-          )
-        }
-        <div className="input_container">
-        <FaPagelines className="icon" />
+            <label className="labelNames">Nombres y apellidos</label>
+      </div>
+
+      <div className="input_box">
+        <FaPagelines className="icon"/>
         <input type="number"
-        {...register('edad',{required:true})}
+        {...register("Edad",{required:true})}
         placeholder=""
         />
-        <label className="labelclassAge">Edad</label>
-        </div>
-        {
-          errors.edad &&(
-            <p className="errosReactForm">
-              La edad es requerida
-            </p>
-          )
-        }
-          
-          <div className="input_container">
-          <IoIosMail className="icon"/>
-        <input type="email" 
-         {...register("email",{required:true})}
-         placeholder=""
-        />
-          <label className="labelclassEmail">Correo corporativo</label>
-        </div>
-         {
-          errors.email &&(
-            <p className="errosReactForm">
-              El correo corporativo es requerido
-            </p>
-          )
-        }
-         
-         <div className="input_container">
-         <MdOutlineWork className="icon" />
-        <input type="text"
+            <label className="labelEdad">Edad</label>
+      </div>
+
+      <div className="input_box">
+        <IoIosMail className="icon"/>
+      <input type="email"
+       {...register("email",{required:true})}
+       placeholder=""
+      />
+          <label className="labelEmail">Correo corporativo</label>
+      </div>
+
+      <div className="input_box">
+        <MdOutlineWork className="icon" />
+      <input type="text"
         {...register("cargo",{required:true})}
         placeholder=""
+      />
+          <label className="LabelCargo">Cargo laboral</label>
+      </div>
+
+        <div className="input_box">
+       <input type="text"
+        {...register("text",{required:true})}
+         placeholder=""
         />
-        <label className="labelclassCargo">Cargo laboral</label>
+          <label className="jefe">Jefe directo</label>
         </div>
-        {
-          errors.cargo &&(
-            <p className="errosReactForm">
-              El cargo es requerido
-            </p>
-          )
-        }
-        
-        <div className="input_container">
-        <AiOutlineDingtalk className="icon" />
-        <input type="text"
-        {...register("supervisor",{required:true})}
-        placeholder=""
-        />
-        <label className="labelclassSuper">Supervisor de area</label>
-        </div>
-        {
-          errors.supervisor &&(
-            <p className="errosReactForm">
-              El nombre del supervisor es requerido
-            </p>
-          )
-        }
-        <div className="recordar">
-          <label><input type="checkbox"></input> Recordar</label> 
-        </div>
-        <button className="botonRegister" type="submit">
-            Registrarse
-        </button>
-      </form>
-      <footer>
-        <p className="message">¿ya te encuentras registrado?</p>
-    <Link to="/Login" className="enlaceLogin">Iniciar sesion</Link>
-      </footer>
-         </section>
-        </main>
-        </body>
       
-    )
+
+      <div className="remember">
+        <label><input type="checkbox"/>Recordar mis credeciales</label>
+      </div>
+      <Link to="/Login" className="loginRedirect">Ya se encuentra registrado?</Link>
+      <button className="buton_register">Registrarse</button>
+     </form>
+   </section>
+  </main>
+</body>
+)
 }
 
-
-
-export default RegisterPage
+export default RegisterAdminPage

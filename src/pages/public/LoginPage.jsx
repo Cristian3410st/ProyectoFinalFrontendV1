@@ -5,25 +5,27 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosMail } from "react-icons/io";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { IoClose } from "react-icons/io5"
 import "../../public/styles/login.css"
 
 
 function LoginPage(){
 
     const {register,handleSubmit,formState:{errors}} = useForm();
-    const {signin,isAuthenticated,errors:LoginErrors} = useAccess();
+    const {signin,isAuthenticated,errors:LoginErrors,user} = useAccess();
     const navigate = useNavigate();
 
    
+
 
     const onSubmit = handleSubmit(async (values) =>{
         signin(values)
       })
 
       useEffect(()=>{
-        if(isAuthenticated)navigate("/admin")
-      },[isAuthenticated])
+        if(isAuthenticated && user.rol === "usuario")navigate("/user")
+        else if(isAuthenticated && user.rol === "administrador")navigate("/admin")
+        
+      },[isAuthenticated,user])
 
 
  
@@ -35,8 +37,7 @@ function LoginPage(){
 
       <div className="home-body">
         <main className={`wrapper ${hasformErros ? "classErrors" : ""}`}>
-         <span className="iconClose" onClick={() => navigate("/")}><IoClose />
-           </span>
+           
           <section className="form-box-login">
               {
               LoginErrors.map((error,i)=>(
@@ -85,7 +86,7 @@ function LoginPage(){
        </form>
        <footer>
        <p className="message">¿Eres un nuevo usuario?</p>
-       <Link to="/Register" className="enlaceRegister">Crear cuenta</Link>
+       <Link to="/register" className="enlaceRegister">Crear cuenta</Link>
        </footer>
           </section>
         </main>

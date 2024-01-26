@@ -1,5 +1,6 @@
-const apiURL = "https://proyectofinalv1backend.onrender.com/api"
+//const apiURL = "https://backendsubdomain.mgdtbackednv1.online/api"
 
+const apiURL = "http://localhost:3000/api"
 
 export const RegisterPost = async (user) => {
     try {
@@ -24,6 +25,7 @@ export const RegisterPost = async (user) => {
        
     
 }
+
 
 
 export const LoginPost = async (user) => {
@@ -55,6 +57,7 @@ export const LoginPost = async (user) => {
 };
 
 
+
 export const verifyTokenRequest = async (token) => {
   try {
    
@@ -79,3 +82,22 @@ export const verifyTokenRequest = async (token) => {
     return { ok: false, data: null, error: error.message };
   }
 };
+
+
+export const logoutApi = async () => {
+  try{
+    const response = await fetch(`${apiURL}/logout`,{
+      method:"POST",
+      headers:{
+        "content-type":"application/json",
+      },
+      credentials: "include"
+    })
+    
+    const data =  await response.json();
+    return {status:response.status,data:data}
+
+  }catch(error){
+    console.error(error)
+  }
+}

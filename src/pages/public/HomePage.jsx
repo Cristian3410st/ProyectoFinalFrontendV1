@@ -12,7 +12,7 @@ function HomePage(){
 
 
   useEffect(()=>{
-    if(isAuthenticated) navigate("/admin")
+    if(isAuthenticated) navigate("/user")
   },[isAuthenticated])
   
 

@@ -1,0 +1,83 @@
+
+.contaniner{
+    background-image: linear-gradient( 99deg,  rgba(115,18,81,1) 10.6%, rgba(28,28,28,1) 118% );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+
+
+
+
+.container_card{
+    width: 300px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+.boton_horarios{
+    width: 170px;
+    height: 50px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,.5);
+    transition: 0.5s;
+   font-weight: 600;
+   border-radius: 5px;
+
+}
+
+
+
+
+.boton_horarios:hover{
+    background-color: #fff;
+    color: black;
+    transform: scale(1.1);
+}
+
+.boton_horarios:active{
+    transform:scale(0.9);
+    background-color: rgb(230, 59, 82);
+    transition: transform 0.2s;
+    color: #fff;
+  }
+  
+
+.contenidoHorarios{
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    backdrop-filter: blur(20px);
+     margin: 30px;
+     border-radius: 5px;
+}
+
+.tablaGeneral{
+   text-align: center;
+   border-collapse: collapse;
+   color: #fff;
+}
+
+
+.contenidoTabla td{
+    padding: 10px;
+}
+
+.thead th{
+    padding: 10px;
+   
+}
+
+.containerHorarios:hover{
+    box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+    transition: 0.5s;
+}
+

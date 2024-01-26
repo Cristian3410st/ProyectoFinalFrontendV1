@@ -1,6 +1,6 @@
 import { createContext,useContext,useState,useEffect } from "react";
 import{useAccess} from "../contexts/AccessContex.jsx"
-import {getsSchedule,markEntry,markExit} from "../api/Tasks.js"
+import {getsSchedule,markEntry,markExit,alterPassword,buscarHorariosGen,modificarHorariosGen} from "../api/Tasks.js"
 
 const TaskContext = createContext();
 
@@ -22,6 +22,7 @@ export function TaskProvider({children}) {
     const [markstart,getMarkStart] = useState(null)
     const [markEnd,getMarkEnd] = useState(null)
     const [errors,setErrors] = useState([])
+    const [horariosAdmin,setHorariosAdmin]= useState(null)
 
     
      useEffect(()=>{
@@ -48,6 +49,38 @@ export function TaskProvider({children}) {
         }
      }
 
+
+     const modifyPass = async (values) => {
+
+        try{
+            const res = await alterPassword({userId:user.id, ...values})
+        }catch(error){
+            console.log(error)
+        }
+         
+     }
+
+     const findUsernames = async (values) =>{
+        try{
+            const res = await buscarHorariosGen(values)
+            console.log(res.data)
+             setHorariosAdmin(res.data)
+
+        }catch(error){
+            console.log(error)
+        }
+     }
+
+     const modifyfindUsernames = async(values)=>{
+        try{
+           const res = await modificarHorariosGen(values)
+
+        }catch(error){
+            console.log(error)
+        }
+     }
+
+
      const clear = () => {
         setHorarios(null)
         getMarkStart(null)
@@ -59,11 +92,17 @@ export function TaskProvider({children}) {
  
      
 
-     const postEntry = async () =>{
+     const postEntry = async () =>{    
         try{
             const res = await markEntry();
-            getMarkStart(res)
-            console.log(res)
+            if(res.status === 200){
+                getMarkStart(res.data)
+                console.log(res.data)
+            }else{
+                setErrors(res.data)
+                console.log(res.data)
+            }
+            
 
         }catch(error){
             console.error(error)
@@ -75,8 +114,14 @@ export function TaskProvider({children}) {
 
         try{
             const res = await markExit();
-            getMarkEnd(res)
-            console.log(res)
+            if(res.status === 200){
+                getMarkEnd(res.data)
+                console.log(res.data)
+            }else{
+                setErrors(res.data)
+                console.log(res.data)
+            }
+         
 
         }catch(error){
             console.error(error)
@@ -90,7 +135,7 @@ export function TaskProvider({children}) {
    
 
     return(
-        <TaskContext.Provider value={{getschedulesData,horarios,postEntry,markstart,postExit,markEnd,errors}}>
+        <TaskContext.Provider value={{getschedulesData,horarios,postEntry,markstart,postExit,markEnd,errors,modifyPass,findUsernames,horariosAdmin,modifyfindUsernames}}>
         {children}
         </TaskContext.Provider>
     )

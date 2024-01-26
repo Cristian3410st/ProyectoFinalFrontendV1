@@ -1,0 +1,129 @@
+.containerAdmin{
+    background-image: linear-gradient( 99deg,  rgba(115,18,81,1) 10.6%, rgba(28,28,28,1) 118% );
+    background-size: 100%;
+    background-position: center 59%;   
+    background-repeat: no-repeat;
+   width: 100%;
+   height: 700px;
+   font-size: 2rem;
+   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+   align-items: center;
+}
+
+
+.cardEntry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    margin: 15px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    backdrop-filter: blur(20px);
+}
+
+.cardExit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    margin: 15px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    backdrop-filter: blur(50px);
+}
+
+
+.BotonEntrada{
+    background-color:transparent ;
+    border: 2px solid rgba(255,255,255,.5);
+    height: 60px;
+    width: 200px;
+    color: #fff;
+     cursor: pointer;
+     transition: transform 0.4s,background-color 0.4s,height 0.2s, width 0.2s;
+     margin: 9px;
+}
+
+.BotonEntrada:hover{
+    transform: scale(1.1);
+    background-color: rgb(70, 101, 141);
+}
+
+.BotonEntrada:active{
+    transform: scale(0.9);
+    background-color: rgb(231, 138, 138);
+    transition: transform 0.2s;
+}
+
+
+.BotonSalida{
+    background-color:transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    height: 60px;
+    width: 200px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.4s,background-color 0.4s,height 0.2s, width 0.2s;
+    margin: 9px;
+
+}
+
+.BotonSalida:hover{
+    transform: scale(1.1);
+    background-color:#4CAF50 ;
+}
+
+.BotonSalida:active{
+    transform: scale(0.9);
+    background-color: rgb(231, 138, 138);
+    transition: transform 0.2s;
+}
+
+
+
+.entry{
+    width: 350px;
+    height: 200px;
+   
+}
+
+.exit{
+    width: 350px;
+    height: 200px;
+}
+
+.mensaje{
+    color: #fff;
+    font-size:large;
+    margin: 9px;
+    text-align: center;
+    
+}
+
+.cardEntry:hover{
+   box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+   transition: 0.5s;
+}
+
+.cardExit:hover{
+    box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+    transition: 0.5s;
+ }
+
+
+ .entry:hover{
+    transform: scale(1.1);
+ }
+
+ .overflow{
+    overflow: hidden;
+ }
+
+ .exit:hover{
+    transform: scale(1.1);
+ }
+ 
+

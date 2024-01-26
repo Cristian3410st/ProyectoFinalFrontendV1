@@ -9,7 +9,7 @@ function ContactPage(){
     const navigate = useNavigate()
 
     useEffect(()=>{
-        if(isAuthenticated)navigate("/admin")
+        if(isAuthenticated)navigate("/user")
     },[isAuthenticated])
 
     return(

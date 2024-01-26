@@ -1,6 +1,6 @@
 import {createContext,useState,useContext, useEffect} from "react"
 import Cookies from "js-cookie"
-import {RegisterPost,LoginPost,verifyTokenRequest} from "../api/fetch.js"
+import {RegisterPost,LoginPost,verifyTokenRequest,logoutApi} from "../api/fetch.js"
 
 
 
@@ -20,9 +20,9 @@ return context;
 export const AccessProvider = ({children}) => {
     
     const[user,setUser] = useState(null)
-    const[isAuthenticated,setIsAuthenticated] = useState(false)
+    const[isAuthenticated,setIsAuthenticated] = useState(false);
     const [errors,setErrors] = useState([]);
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(true);
 
  useEffect(()=>{
     if(errors.length>0){
@@ -41,6 +41,7 @@ export const AccessProvider = ({children}) => {
       setIsAuthenticated(true)
       setUser(data)
       console.log(data)
+      Cookies.set("userData",JSON.stringify(data))
     }else{
       setErrors(data)
       setIsAuthenticated(false)
@@ -54,6 +55,10 @@ export const AccessProvider = ({children}) => {
   };
 
 
+  
+
+
+
     const signin = async (user) => {
 
     try{
@@ -61,7 +66,6 @@ export const AccessProvider = ({children}) => {
        if(status === 200){
         setIsAuthenticated(true)
         setUser(data)
-        console.log(data)
         Cookies.set("userData",JSON.stringify(data))
        }else{
         setErrors(data)
@@ -78,9 +82,23 @@ export const AccessProvider = ({children}) => {
     
 
     const logout = () => {
-        Cookies.remove("token")
+        Cookies.remove("userData")
         setUser(null)
         setIsAuthenticated(false)
+    }
+
+    const logoutapi2 = async () => {
+    try{  
+        const {data,status} = await logoutApi()
+        if(status === 200){
+          console.log("token borrado de forma forma exitosa")
+        }else{
+          console.error(`error ${status}`,data)
+        }
+        
+    }catch(error){
+     console.error(error)
+    }
     }
 
     
@@ -96,8 +114,8 @@ export const AccessProvider = ({children}) => {
           try {
             const res = await verifyTokenRequest(cookies.token);
             console.log(res);
-            if (!res.data) return setIsAuthenticated(false);
-            setIsAuthenticated(true);
+            if (!res.data) return setIsAuthenticated(false), setisAuthenticatedAdmin(false);
+            setIsAuthenticated(true)
             setUser(res.data);
             const userData = Cookies.get("userData");
             setUser(JSON.parse(userData));
@@ -121,7 +139,8 @@ export const AccessProvider = ({children}) => {
             errors,
             signin,
             loading,
-            logout
+            logout,
+            logoutapi2,
          }}>
             {children}
          </AccessContext.Provider>
