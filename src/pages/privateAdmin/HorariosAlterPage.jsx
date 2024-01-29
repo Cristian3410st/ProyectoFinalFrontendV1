@@ -17,8 +17,9 @@ function HorariosAlterPage(){
     const{register:consultaRegistro,handleSubmit:handleSubmitConsult} = useForm();
     const{register:modifiacionRegistro,handleSubmit:handleSubmitModify} = useForm();
     const{register:asigacionRegistro,handleSubmit:handleSubmitAsing} = useForm();
+    const{register:descanso,handleSubmit:handleSubmitRest} = useForm();
 
-    const {findUsernames,horariosAdmin,modifyfindUsernames} = useTasks();
+    const {findUsernames,horariosAdmin,modifyfindUsernames,errors,restPost} = useTasks();
      
     const onSubmit = handleSubmitConsult(async(values)=>{
         console.log(values)
@@ -36,10 +37,16 @@ function HorariosAlterPage(){
       
      })
 
+     const onSubmitRest = handleSubmitRest(async(values)=>{
+      console.log(values)
+      await restPost(values)
+     })
+
   
 
     return(
         <main className="body_container">
+          <section className="CONTENEDORES_PRIMARIOS">
             <article className="containerUser">
               <h4>Consulta de horarios</h4>
        <h4>Ingresa el nombre de usuario del empleado para consultar su horario</h4>
@@ -55,6 +62,48 @@ function HorariosAlterPage(){
     <button className="BotonConsulta">consultar</button>
     </form>
     </article>
+    <article className="container_rest">
+        <h4>Asignacion dia de descanso</h4>
+        <h4>Ingresa el dia de descanso que desees para cualquier usuario</h4>
+        <form onSubmit={onSubmitRest}>
+        {
+                  errors.map((error,i) =>(
+                    <div key={i} className="passErrorsHorarios">
+                      {error}
+                    </div>
+                  ))
+                }
+          <div className="contenedorInputGen">
+          <FaUser className="icono"/>
+       <input type="text"
+       {...descanso("username",{required:true})}
+       placeholder=""
+       />
+       <label>nombre de usuario</label>
+       </div>
+
+       <div className="contenedorInputGen">
+       <MdDateRange className="icono" />
+       <input type="text"
+        {...descanso("diaDescanso",{required:true})}
+        placeholder=""
+       />
+          <label>dia de descanso</label>
+          </div>
+
+
+          <div className="contenedorInputGen">
+          <RiRestTimeFill className="icono" />
+       <input type="text"
+         {...descanso("fechaDescanso",{required:true})}
+         placeholder=""
+       />
+          <label>fecha de descanso</label>
+          </div>
+       <button className="BotonConsulta">asignar descanso</button>
+        </form>
+    </article>
+       </section>
      <div>
         {horariosAdmin ?(
          <table className="contenedorHorarios">
@@ -67,6 +116,7 @@ function HorariosAlterPage(){
                     <th>hora entrada registrada</th>
                     <th>hora salida registrada</th>
                     <th>fecha</th>
+                    <th>descanso</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,6 +129,7 @@ function HorariosAlterPage(){
                      <td>{horario.horaEntradaRegistrada}</td>
                      <td>{horario.horaSalidaRegistrada}</td>
                      <td>{horario.fecha}</td>
+                     <td>{horario.descanso}</td>
                     </tr>
                ))}
             </tbody>
@@ -90,7 +141,7 @@ function HorariosAlterPage(){
          <section className="sectionContenedor">
 
     <article className="containerModify">
-          <h4>ModificacionIndividual de Horarios</h4>
+          <h4>Modificacion Individual de Horarios</h4>
         <h4>
             Ingresa el nombre del usuario y confirma el día de la semana<br/>
             que deseas modificar. Luego, proporciona la hora de entrada<br/>
@@ -173,6 +224,14 @@ function HorariosAlterPage(){
     y proporciona los detalles del horario que deseas asignar.
      </h4>
      <form onSubmit={onsubmitAsing}>
+
+     {
+                  errors.map((error,i) =>(
+                    <div key={i} className="passErrors">
+                      {error}
+                    </div>
+                  ))
+                }
       <div className="contenedorInputGen">
         <FaUser className="icono "/>
         <input type="text"
@@ -188,7 +247,7 @@ function HorariosAlterPage(){
         placeholder=""
        >
         <option value="" className="option">selecione los dias laborales</option>
-        <option values="lunesViernes" className="option">lunes a viernes</option>
+        <option values="lunesViernes" className="option">lunes a domingo</option>
 
        </select>
       </div>

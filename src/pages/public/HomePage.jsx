@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../public/styles/home.css"
 import {useAccess} from "../../contexts/AccessContex"
+import "../../public/styles/homepage.css"
 
 function HomePage(){
 
@@ -17,9 +17,15 @@ function HomePage(){
   
 
     return(
-        <div className="home">
-            <h1>Pagina de inicio</h1>
-        </div>
+        <body className="home">
+          <main className="mainInicio">
+            <h1>Bienvenido a MGDT</h1>
+            <p>Para acceder a las diversas opciones, simplemente<br/>
+              diríjase al menú de navegación. Esperamos que su <br/>
+              experiencia al explorar y utilizar las distintas funciones sea agradable.<br/>
+            </p>
+            </main>
+        </body >
     )
 }
 

@@ -25,15 +25,15 @@ function GetsSchedulePage(){
         </section>
         <div>
           {horarios ?(
-            <article className="containerHorarios">
-              <table className="tablaGeneral">
+              <table className="tablaGeneralUser">
                 <thead className="thead">
                   <tr>
-                    <th>id usuario</th>
                     <th>username</th>
                     <th>dia</th>
                     <th>hora entrada asignada</th>
                     <th>salida asignada</th>
+                    <th>hora entrada registrada</th>
+                    <th>hola salida registrada</th>
                     <th>fecha</th>
                     <th>descanso</th>
                   </tr>
@@ -41,19 +41,19 @@ function GetsSchedulePage(){
                 <tbody>
                   {horarios.map((horario,index) =>(
                    <tr key={index} className="containerTable">
-                    <td>{horario.id}</td>
                     <td>{horario.username}</td>
                     <td>{horario.diaSemana}</td>
                     <td>{horario.horaEntradaAsignada}</td>
                     <td>{horario.horaSalidaAsignada}</td>
+                    <td>{horario.horaEntradaRegistrada}</td>
+                    <td>{horario.horaSalidaRegistrada}</td>
                     <td>{horario.fecha}</td>
-                    <td>{horario.indicadorDescanso}</td>
+                    <td>{horario.descanso}</td>
                    </tr>
 
                      ))}
                 </tbody>
               </table>
-            </article>
           ):(
             <div></div>
           )}

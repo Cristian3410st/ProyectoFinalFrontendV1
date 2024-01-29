@@ -1,6 +1,6 @@
 import { createContext,useContext,useState,useEffect } from "react";
 import{useAccess} from "../contexts/AccessContex.jsx"
-import {getsSchedule,markEntry,markExit,alterPassword,buscarHorariosGen,modificarHorariosGen} from "../api/Tasks.js"
+import {getsSchedule,markEntry,markExit,alterPassword,buscarHorariosGen,modificarHorariosGen,diaDescanso, UserGens} from "../api/Tasks.js"
 
 const TaskContext = createContext();
 
@@ -23,6 +23,7 @@ export function TaskProvider({children}) {
     const [markEnd,getMarkEnd] = useState(null)
     const [errors,setErrors] = useState([])
     const [horariosAdmin,setHorariosAdmin]= useState(null)
+    const [userGet,setUserGet] =useState(null)
 
     
      useEffect(()=>{
@@ -53,7 +54,15 @@ export function TaskProvider({children}) {
      const modifyPass = async (values) => {
 
         try{
-            const res = await alterPassword({userId:user.id, ...values})
+            const res = await alterPassword(values)
+            if(res.status === 200){
+                console.log(res.data)
+                setErrors(res.data)
+            }else{
+                console.log(res.data)
+                setErrors(res.data)
+            }
+
         }catch(error){
             console.log(error)
         }
@@ -129,13 +138,42 @@ export function TaskProvider({children}) {
 
      }
 
+
+       const restPost = async(values) =>{
+        try{
+             const res =  await diaDescanso(values);
+             if(res.status === 200){
+                console.log(res.data)
+                setErrors(res.data)
+             }else{
+                console.log(res.data)
+                setErrors(res.data)
+             }
+
+        }catch(error){
+            console.log(error)
+        }
+       }
+
+       const getUsers = async() =>{
+      try{
+        const res = await UserGens();
+        if(res.status === 200){
+            setUserGet(res.data)
+        }
+      }catch(error){
+        console.log(error)
+      }
+
+       } 
+
      useEffect(()=>{
        clear();
     },[user])
    
 
     return(
-        <TaskContext.Provider value={{getschedulesData,horarios,postEntry,markstart,postExit,markEnd,errors,modifyPass,findUsernames,horariosAdmin,modifyfindUsernames}}>
+        <TaskContext.Provider value={{getschedulesData,horarios,postEntry,markstart,postExit,markEnd,errors,modifyPass,findUsernames,horariosAdmin,modifyfindUsernames,restPost,userGet,getUsers}}>
         {children}
         </TaskContext.Provider>
     )

@@ -1,6 +1,6 @@
-//const apiURL = "https://backendsubdomain.mgdtbackednv1.online/api"
+const apiURL = "https://backendsubdomain.mgdtbackednv1.online/api"
 
-const apiURL = "http://localhost:3000/api"
+//const apiURL = "http://localhost:3000/api"
 
 export const getsSchedule = async () => {
    try{
@@ -76,7 +76,7 @@ export const alterPassword = async (values) =>{
 
         const data = await  response.json()
 
-        return{data}
+        return {status:response.status,data:data}
 
     }catch(error){
         console.log(error)
@@ -142,4 +142,48 @@ export const asignarHorarios = async(values) =>{
     }catch(error){
       console.log(error)
     }
+}
+
+
+
+export const diaDescanso = async(values) =>{
+
+   try{
+     const response = await fetch(`${apiURL}/rest`,{
+        method:"POST",
+        credentials:"include",
+        headers:{
+            "content-Type":"application/json",
+        },
+        body:JSON.stringify(values)
+     })
+          const data = await response.json()
+
+          return{status:response.status,data:data}
+            
+   }catch(error){
+    console.log(error)
+   }
+}
+
+
+
+
+export const UserGens = async() =>{
+
+    try{
+    const response = await fetch(`${apiURL}/GenUsers`,{
+        method:'GET',
+        credentials:"include",
+        headers:{
+            "content-Type":"application/json",
+        },
+        body:JSON.stringify()
+    })
+        const data = await response.json()
+        return{status:response.status,data:data}
+
+   }catch(error){
+    console.log(error)
+   }
 }

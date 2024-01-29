@@ -38,7 +38,7 @@ function LoginPage(){
       <div className="home-body">
         <main className={`wrapper ${hasformErros ? "classErrors" : ""}`}>
            
-          <section className="form-box-login">
+        
               {
               LoginErrors.map((error,i)=>(
                 <div key={i} className="ErrorRegister">
@@ -50,7 +50,7 @@ function LoginPage(){
         <h2>Inicio de sesion</h2>
 <form onSubmit={onSubmit}>
          <div className="input-container">
-         <IoIosMail className="icon"/>
+         <IoIosMail className="iconoLogin"/>
         <input type="email" 
         {...register("email",{required:true})}
         placeholder=""
@@ -65,7 +65,7 @@ function LoginPage(){
           )
         }
         <div className="input-container">
-        <RiLockPasswordFill className="icon"/>
+        <RiLockPasswordFill className="iconoLogin"/>
         <input type="password"
         {...register("password",{required:true})}
         placeholder=" "
@@ -82,13 +82,12 @@ function LoginPage(){
         <div className="recordar">
         <label><input type="checkbox"></input>recordar mis credenciales</label>
         </div>
-        <button type="submit" className="boton">iniciar sesión</button>
+        <button type="submit" className="BotonLogin">iniciar sesión</button>
        </form>
        <footer>
        <p className="message">¿Eres un nuevo usuario?</p>
        <Link to="/register" className="enlaceRegister">Crear cuenta</Link>
        </footer>
-          </section>
         </main>
         </div>
        

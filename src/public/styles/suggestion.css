@@ -1,0 +1,92 @@
+.sugestionBody{
+    --s: 50px;
+    --c: #191b22;
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+    background: 
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s), 
+      radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s), 
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s), 
+      radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s), 
+      repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s), 
+      radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+    background-attachment: fixed;
+    min-height: 100vh;
+      width: 1358px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+}
+
+.sectionSugerencias{
+    border: 2px solid rgba(255,255,255,.5);
+    box-shadow: 0 0 30px rgba(0,0,0, .5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.input-containerSugestion{
+    border-bottom: 2px solid #fff;
+    width: 270px;
+    height: 57px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.input-containerSugestion input{
+    width: 245px;
+    margin-top: 10px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-top: 9px;
+    color: #fff;
+    font-size: medium;
+    font-weight: 500;
+}
+
+
+  .input-containerSugestion label{
+    position: absolute;
+     display: block;
+      top: 19px;
+      left: 19px;
+      pointer-events: none;
+      transition: .4s;
+      font-size: 19px;
+ }
+
+ .input-containerSugestion input:focus ~ label,
+ .input-containerSugestion input:not(:placeholder-shown) ~ label {
+    top: -3px;
+}
+.BotonSugerencias{
+    width: 250px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #ffff;
+    color: #ffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: 500;
+    transition: 0.5s;
+    margin-top: 10px;
+    font-size: 19px;
+}
+
+.iconoSugestion{
+    color: #ffff;
+    margin-top: 22px;
+}
+
+.label_sug{
+    margin-top: 6px;
+}

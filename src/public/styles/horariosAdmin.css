@@ -1,34 +1,53 @@
 .body_container{
-    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
-    width: 100%;
-    min-height:100vh;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+   --s: 200px; /* control the size */
+    --c: #696969; /* first color */
+    
+    --_g: #0000 8%,var(--c) 0 17%,#0000 0 58%;
+    background: 
+      linear-gradient(135deg,#0000 20.5%,var(--c) 0 29.5%,#0000 0) 0 calc(var(--s)/4),
+      linear-gradient( 45deg,var(--_g)) calc(var(--s)/2) 0,
+      linear-gradient(135deg,var(--_g),var(--c) 0 67%,#0000 0),        
+      linear-gradient( 45deg,var(--_g),var(--c) 0 67%,#0000 0 83%,var(--c) 0 92%,#0000 0),
+      #023e50; /* second color */
+    background-size: var(--s) var(--s);
+    min-height: 100vh;
+      width: 1360px;
+    display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
  
 }
 
 
 .containerUser{
-    border: 2px solid #ffff;
-    box-shadow: 0 0 30px rgba(0,0,0, .5);
+   border: 2px solid rgba(255,255,255,.5);
+   box-shadow: 0 0 30px rgba(0,0,0, .5);
+   backdrop-filter: blur(20px);
     border-radius:5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
     width: 530px;
-    height: 250px;
-    margin-top: 110px;
+    height: 270px;
     padding: 5px;
+    margin: 10px;
+    margin-top: 230px;
+}
+
+.containerUser:hover{
+   box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+   transition: 0.5s;
+   cursor: pointer;
 }
 
 
 
 .containerModify{
-    border: 2px solid #ffff;
-    box-shadow: 0 0 30px rgba(0,0,0, .5);
+   border: 2px solid rgba(255,255,255,.5);
+   box-shadow: 0 0 30px rgba(0,0,0, .5);
+   backdrop-filter: blur(20px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -43,10 +62,17 @@
     text-align: center;
 }
 
+.containerModify:hover{
+   box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+   transition: 0.5s;
+   cursor: pointer;
+}
+
 
 .containerAsingModify{
-    border: 2px solid #ffff;
-    box-shadow: 0 0 30px rgba(0,0,0, .5);
+   border: 2px solid rgba(255,255,255,.5);
+   box-shadow: 0 0 30px rgba(0,0,0, .5);
+   backdrop-filter: blur(20px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -61,8 +87,14 @@
   text-align: center;
 }
 
+.containerAsingModify:hover{
+   box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+   transition: 0.5s;
+   cursor: pointer;
+}
+
 .sectionContenedor{
-    display: flex;
+   display: flex;
  }
 
  h4{
@@ -106,7 +138,6 @@
    color: #fff;
    font-size: medium;
    font-weight: 500;
-
  }
 
 
@@ -163,9 +194,17 @@
     border-radius: 5px;
     color: #ffff;
     margin: 15px;
-    padding: 5px;
+    padding: 10px;
+   text-align: center;
  }
 
+ .contenedorHorarios thead tr th{
+   padding: 10px;
+ }
+
+ .contenedorHorarios  tr td{
+   padding:5px;
+ }
  .BotonConsulta:hover{
     transform: scale(1.1);
     background-color: rgb(44, 109, 60);
@@ -174,3 +213,45 @@
  .BotonConsulta:active{
     transform: scale(0.9);
  }
+
+ .container_rest{
+   border: 2px solid rgba(255,255,255,.5);
+   box-shadow: 0 0 30px rgba(0,0,0, .5);
+   backdrop-filter: blur(20px);
+    border-radius:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 530px;
+    height: 400px;
+    padding: 5px;
+    margin: 10px;
+    margin-top: 150px;
+   
+ }
+
+ .container_rest:hover{
+   box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+   transition: 0.5s;
+   cursor: pointer;
+}
+ 
+
+ .CONTENEDORES_PRIMARIOS{
+  display: flex;
+ }
+
+ 
+ .contenedorInputGen input:-webkit-autofill {
+   -webkit-text-fill-color: #fff !important;
+   transition: background-color 5000s ease-in-out 0s !important;
+ }
+ 
+ 
+ .passErrorsHorarios{
+   color: #ffff;
+   border: 2px solid #fff;
+ }
+
+

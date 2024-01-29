@@ -1,6 +1,6 @@
-//const apiURL = "https://backendsubdomain.mgdtbackednv1.online/api"
+const apiURL = "https://backendsubdomain.mgdtbackednv1.online/api"
 
-const apiURL = "http://localhost:3000/api"
+//const apiURL = "http://localhost:3000/api"
 
 export const RegisterPost = async (user) => {
     try {

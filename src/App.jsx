@@ -18,6 +18,7 @@ import AlterPasswordPage from "./pages/private/AlterPasswordPage";
 import AdminPage from "./pages/privateAdmin/AdminPage";
 import HorariosAlterPage from "./pages/privateAdmin/HorariosAlterPage";
 import AlterPasswordPageAdmin from "./pages/privateAdmin/AlterPasswordPageAdmin";
+import ManualAdminPage from "./pages/privateAdmin/ManualAdminPage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
               <Route path="/admin" element={<AdminPage/>} />
               <Route path="/horariosAlter" element={<HorariosAlterPage/>}></Route>
               <Route path="/modifyPassword" element={<AlterPasswordPageAdmin/>}></Route>
+              <Route path="/manualAdmin" element={<ManualAdminPage/>}></Route>
               </Route>
 
           </Routes>

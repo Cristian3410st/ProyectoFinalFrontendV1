@@ -15,7 +15,7 @@ import { useEffect } from "react";
 function RegisterAdminPage(){
    
     const {register,handleSubmit} = useForm();
-    const {signup,isAuthenticated,user} = useAccess();
+    const {signup,isAuthenticated,user,errors} = useAccess();
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -32,6 +32,14 @@ return(
 <body className="body">
   <main className="wraper">
    <section className="form_box_register">
+   {
+              errors.map((error,i)=>(
+                <div key={i} className="ErrorRegister">
+                  {error}
+                </div>
+              ))
+
+        }
      <form className="" onSubmit={onSubmit}>
        <h2>Registrarse</h2>
 
@@ -40,7 +48,6 @@ return(
        </p>
        <div className="input_box">
          <FaKey className="icon"/>
-         <label className="labelPassword">selecione su rol:</label>
           <select {...register("rol",{required:true})}>
            <option value="administrador">administrador</option>
            <option value="usuario">usuario</option>
@@ -84,7 +91,7 @@ return(
       <div className="input_box">
         <IoIosMail className="icon"/>
       <input type="email"
-       {...register("email",{required:true})}
+       {...register("correoCorporativo",{required:true})}
        placeholder=""
       />
           <label className="labelEmail">Correo corporativo</label>
@@ -100,8 +107,9 @@ return(
       </div>
 
         <div className="input_box">
+        <MdOutlineWork className="icon" />
        <input type="text"
-        {...register("text",{required:true})}
+        {...register("jefeDirecto",{required:true})}
          placeholder=""
         />
           <label className="jefe">Jefe directo</label>

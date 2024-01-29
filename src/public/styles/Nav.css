@@ -6,16 +6,21 @@
     position: absolute;
 }
 
+
+
 .logoClient{
     color: #fff;
-    font-size:x-large;
     font-weight: 600;
     margin-right: auto;
 }
 
 .iconoClient{
     margin-bottom: -5px;
+     font-size:xx-large;
 }
+
+
+
 
 .listaNavegacionPublica{
    display: flex;
@@ -38,6 +43,7 @@
 .listaNavegacionPublica li{
     text-decoration: none;
     list-style: none;
+    font-size: 19px;
 }
 
 
@@ -60,6 +66,7 @@
     font-size: 1rem;
     transition: .5s;
     color: #fff;
+    font-size: 19px;
 
 }
 
@@ -116,13 +123,14 @@
 .logo{
     color: #fff;
     margin-right: auto;
-    font-size:x-large;
     font-weight: 600;
+
 
 }
 
 .icono2{
   margin-bottom: -5px;
+  font-size:xx-large;
 }
 
 
@@ -137,6 +145,7 @@
 
 .ulAdmin li{
     display: inline;
+    font-size: 19px;
 }
 
 li{
@@ -176,6 +185,7 @@ li{
     font-family: 'Roboto Condensed', sans-serif;
     margin: auto;
     margin-top: 12px;
+    font-size: 19px;
 }
 
 .cambiaConraseña{
@@ -229,7 +239,7 @@ li{
 
 .logout{
     border: 2px solid #fff;
-    width: 130px;
+    width: 140px;
     height: 50px;
     border-radius: 6px;
     cursor: pointer;
@@ -237,6 +247,7 @@ li{
     font-size: 1rem;
     transition: .5s;
     background: transparent;
+    font-size: 19px;
 }
 
 
@@ -245,4 +256,8 @@ li{
     background-color: rgb(139, 10, 10);
     color: #fff;
     transform: scale(1.1);
+}
+
+.listaNavegacionPublica li{
+   margin-bottom: 10px;
 }

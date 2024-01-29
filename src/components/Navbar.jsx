@@ -20,7 +20,7 @@ function NavBar(){
          <nav className="navUser">
         <ul className="ulAdmin">
         <li className="logo">
-         <GiAbstract076 className="icono2"/>mgdt
+         <GiAbstract076 className="icono2"/>MGDT
          </li>
          <li>
             <Link to="/admin">menu</Link>
@@ -45,9 +45,9 @@ function NavBar(){
             <nav className="navUser">
                <ul className="ulAdmin">
                <li className="logo">
-         <GiAbstract076 className="icono2"/>mgdt
+         <GiAbstract076 className="icono2"/>MGDT
               </li>
-                  <li><Link to="">manual de usuario</Link></li>
+                  <li><Link to="/manualAdmin">manual de usuario</Link></li>
                   <li><Link to="/horariosAlter">C&M Horarios</Link></li>
                   <li><Link to="/admin">menu</Link></li>
                   <li><Link to="/modifyPassword">cambiar contraseña</Link></li>
@@ -59,13 +59,10 @@ function NavBar(){
          <header className="headerClient">
          <nav className="navClient">
        <ul className="listaNavegacionPublica">
-         <li className="logoClient"><GiAbstract076 className="iconoClient"/>mgdt
+         <li className="logoClient"><GiAbstract076 className="iconoClient"/>MGDT
          </li>
          <li>
             <Link to="/">Inicio</Link>
-         </li>
-         <li>
-            <Link to="/help">Ayuda</Link>
          </li>
          <li>
             <Link to="/contact">Contactanos</Link>
