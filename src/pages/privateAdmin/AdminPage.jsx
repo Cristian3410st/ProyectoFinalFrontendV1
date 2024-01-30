@@ -47,7 +47,7 @@ function AdminPage(){
                 markEnd ? <p>su hora de entrada es:{markEnd}</p>:<p>Al presionar el botón, podrá visualizar su hora de salida.</p>
             }
             </div>
-            <button onClick={handleExit} className="botonSalida">Registar hora de entrada</button>
+            <button onClick={handleExit} className="botonSalida">Registar hora de Salida</button>
         </article>
 
         </section>

@@ -29,7 +29,7 @@ function ManualAdminPage()
               <img></img>
               <div className="documentacion1">
               <h3>Menu principal</h3>
-              <p>ara registrar tanto la hora de entrada como la hora de salida, diríjase al menú en la 
+              <p>para registrar tanto la hora de entrada como la hora de salida, diríjase al menú en la 
                   parte superior y seleccione la opción 'Registro de Entrada y Salida'. Al hacer clic
                   aparecerán dos recuadros. Cada uno contendrá un botón. El primero le indicará que 
                   registre su hora de entrada; al presionarlo, se mostrará la hora exacta en la que lo 
